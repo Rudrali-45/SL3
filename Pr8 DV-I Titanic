@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 # Load Titanic dataset
 titanic_data = sns.load_dataset('titanic')
 
+#url = "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv"
+#titanic = pd.read_csv(url)
+
 # Display first few rows
 print("First 5 rows:\n", titanic_data.head())
 

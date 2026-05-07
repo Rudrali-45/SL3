@@ -1,0 +1,47 @@
+#11) Impala
+-- Create Database
+CREATE DATABASE college_db;
+
+
+-- Use Database
+USE college_db;
+
+
+-- Create Table
+CREATE TABLE students (
+    id INT,
+    name STRING,
+    age INT,
+    branch STRING,
+    marks INT
+);
+
+
+-- Insert Data
+INSERT INTO students VALUES (1, 'Amit', 20, 'AI', 85);
+INSERT INTO students VALUES (2, 'Neha', 21, 'DS', 90);
+INSERT INTO students VALUES (3, 'Rahul', 19, 'AI', 78);
+INSERT INTO students VALUES (4, 'Sneha', 22, 'IT', 88);
+
+
+
+-- Display Table
+SELECT * FROM students;
+
+
+-- Show specific columns
+SELECT name, marks FROM students;
+
+
+-- Condition (marks > 80)
+SELECT * FROM students WHERE marks > 80;
+
+
+-- Sorting (highest marks first)
+SELECT * FROM students ORDER BY marks DESC;
+
+-- Average marks
+SELECT AVG(marks) FROM students;
+
+-- Count total students
+SELECT COUNT(*) FROM students;

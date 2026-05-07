@@ -11,8 +11,8 @@ iris_data = sns.load_dataset('iris')
 
 #url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
 #columns = ['sepal_length', 'sepal_width',
-           'petal_length', 'petal_width',
-           'species']
+  #         'petal_length', 'petal_width',
+   #        'species']
 #iris_data = pd.read_csv(url, names=columns)
 
 # 3. Explore Dataset
@@ -68,9 +68,7 @@ for i, feature in enumerate(iris_data.columns[:-1]):
 
     plt.subplot(2, 2, i + 1)
 
-    sns.boxplot(x='species',
-                y=feature,
-                data=iris_data)
+    sns.boxplot(x='species',y=feature,data=iris_data)
 
     plt.title(f'Box Plot of {feature} by Species')
 

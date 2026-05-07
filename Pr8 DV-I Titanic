@@ -5,7 +5,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Load Titanic dataset
-titanic_data = sns.load_dataset('titanic')
+titanic_data = sns.load_dataset('titanic')  #-->pgm madhe inbulit use krayla sangitla aahe 
 
 #url = "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv"
 #titanic = pd.read_csv(url)

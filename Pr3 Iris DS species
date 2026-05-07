@@ -1,0 +1,52 @@
+#3)Iris dataset
+
+# Step 1: Import libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Step 2: Load dataset
+url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
+columns = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species']
+
+df = pd.read_csv(url, names=columns)
+
+# Step 3: Display basic info
+print("First 5 rows:\n", df.head())
+print("\nShape:", df.shape)
+
+# Step 4: Filter data by species --dataset split into 3 flower types
+setosa = df[df['Species'] == 'Iris-setosa']
+versicolor = df[df['Species'] == 'Iris-versicolor']
+virginica = df[df['Species'] == 'Iris-virginica']
+
+# Step 5: Descriptive statistics
+print("\nSetosa Statistics:\n", setosa.describe())
+print("\nVersicolor Statistics:\n", versicolor.describe())
+print("\nVirginica Statistics:\n", virginica.describe())
+
+# Step 6: Percentile calculation
+p10 = np.percentile(setosa['SepalLength'], 10)
+p90 = np.percentile(setosa['SepalLength'], 90)
+
+print("\n10th Percentile (Setosa Sepal Length):", p10)
+print("90th Percentile (Setosa Sepal Length):", p90)
+
+# Percentile म्हणजे काय?
+# data ला 100 parts मध्ये divide करतो
+# Meaning:
+# 10th percentile:
+# 10% data या value च्या खाली आहे
+# 90th percentile:
+# 90% data या value च्या खाली आहे
+# Use:
+# data distribution समजण्यासाठी
+
+# Step 7: Visualization (Histogram)
+plt.figure()
+sns.histplot(setosa['SepalLength'], kde=True)
+plt.title("Sepal Length Distribution - Setosa")
+plt.xlabel("Sepal Length")
+plt.ylabel("Frequency")
+plt.show()

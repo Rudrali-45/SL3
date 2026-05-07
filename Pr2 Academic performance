@@ -1,0 +1,74 @@
+#PRACTICAL 2
+
+# 1. Import Libraries
+import pandas as pd
+import numpy as np
+
+# 2. Create Academic Performance Dataset
+data = {
+    'Student_ID': range(1, 101),
+    'Age': np.random.randint(18, 25, 100),
+    'Gender': np.random.choice(['Male', 'Female'], 100),
+    'Maths': np.random.randint(50, 100, 100),
+    'English': np.random.randint(60, 95, 100),
+    'Science': np.random.randint(55, 98, 100),
+    'Attendance': np.random.uniform(70, 100, 100),
+    'Final_Grade': np.random.choice(['A', 'B', 'C'], 100)
+}
+
+# Convert into DataFrame
+df = pd.DataFrame(data)
+
+# 3. Introduce Missing Values
+df.loc[5, 'Maths'] = np.nan
+df.loc[10, 'English'] = np.nan
+df.loc[15, 'Attendance'] = np.nan
+
+# Display first rows
+print("First 5 Rows:\n")
+print(df.head())
+
+# 4. Check Missing Values
+print("\nMissing Values:\n")
+print(df.isnull().sum())
+
+# 5. Handle Missing Values
+df['Maths'] = df['Maths'].fillna(df['Maths'].mean())
+df['English'] = df['English'].fillna(df['English'].median())
+df['Attendance'] = df['Attendance'].fillna(df['Attendance'].mean())
+
+# Check again
+print("\nMissing Values After Handling:\n")
+print(df.isnull().sum())
+
+# 6. Detect Outliers using IQR
+
+Q1 = df['Maths'].quantile(0.25)
+Q3 = df['Maths'].quantile(0.75)
+
+IQR = Q3 - Q1
+
+lower_limit = Q1 - 1.5 * IQR
+upper_limit = Q3 + 1.5 * IQR
+
+outliers = df[(df['Maths'] < lower_limit) | (df['Maths'] > upper_limit)]
+
+print("\nOutliers in Maths Column:\n")
+print(outliers)
+
+# 7. Remove/Handle Outliers using Clipping
+df['Maths'] = np.clip(df['Maths'], lower_limit, upper_limit)
+
+# 8. Data Transformation (Log Transformation)
+
+print("\nSkewness Before Transformation:")
+print(df['Maths'].skew())
+
+df['Maths'] = np.log(df['Maths'])
+
+print("\nSkewness After Transformation:")
+print(df['Maths'].skew())
+
+# 9. Final Dataset
+print("\nFinal Dataset:\n")
+print(df.head())

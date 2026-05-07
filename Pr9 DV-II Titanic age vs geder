@@ -1,0 +1,22 @@
+#9) Titanic 2
+# Import libraries
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load dataset
+titanic_data = sns.load_dataset('titanic')
+
+# Display first few rows
+print("First 5 rows:\n", titanic_data.head())
+
+# Boxplot: Age vs Passenger Class
+plt.figure(figsize=(8, 6))
+sns.boxplot(x='age', y='sex', data=titanic_data)
+
+# Title and labels
+plt.title('Age Distribution across Passenger Classes')
+plt.xlabel('Passenger Class')
+plt.ylabel('Age')
+
+# Show plot
+plt.show()

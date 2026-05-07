@@ -19,6 +19,11 @@ from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, r
 # 2. Load Dataset
 
 dataset = pd.read_csv('Social_Network_Ads.csv')
+
+#m1-->dataset = pd.read_csv("Social_Network_Ads.csv")
+#m2-->url = "https://raw.githubusercontent.com/adi-007/social-network-ads/master/Social_Network_Ads.csv"
+
+dataset = pd.read_csv(url)
 print("First 5 rows:\n", dataset.head())
 print("\nMissing Values:\n", dataset.isnull().sum())
 # 3. Preprocessing

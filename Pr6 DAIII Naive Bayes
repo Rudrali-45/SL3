@@ -16,7 +16,15 @@ from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, r
 
 iris_data = sns.load_dataset('iris')
 df=iris_data
-print("First 5 rows:\n", df.head())
+
+#url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
+#columns = ['sepal_length', 'sepal_width',
+           'petal_length', 'petal_width',
+           'species']
+#iris_data = pd.read_csv(url, names=columns)
+
+
+print("First 5 rows:\n", df.head()) #--iris_data.haead()
 print("\nMissing Values:\n", df.isnull().sum())
 # 3. Preprocessing
 

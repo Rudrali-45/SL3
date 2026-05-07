@@ -1,0 +1,27 @@
+#8)Titanic
+
+# Import libraries
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load Titanic dataset
+titanic_data = sns.load_dataset('titanic')
+
+# Display first few rows
+print("First 5 rows:\n", titanic_data.head())
+
+# Display statistical summary
+print("\nDataset Description:\n", titanic_data.describe())
+
+# Plot histogram for 'fare'
+plt.figure(figsize=(10, 6))
+sns.histplot(titanic_data['fare'], kde=True, bins=30)
+
+# Add labels and title
+plt.title('Distribution of Ticket Prices (Fare) for Titanic Passengers')
+plt.xlabel('Fare')
+plt.ylabel('Frequency')
+plt.grid(True)
+
+# Show plot
+plt.show()
